@@ -1,0 +1,46 @@
+Define a union Data with the members:
+int roll float marks char name[20]
+Write a C++ program to:
+Ask the user to choose which type of data to store (1 → Roll, 2 → Marks, 3 → Name).
+Input the corresponding value and store it in the union. Print the stored value.
+
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+union Data {
+    int roll;
+    float marks;
+    char name[20];
+};
+
+int main() {
+    Data d;
+    int choice;
+
+    cout << "Choose type to store: 1-Roll, 2-Marks, 3-Name: ";
+    cin >> choice;
+
+    switch(choice) {
+        case 1:
+            cout << "Enter roll number: ";
+            cin >> d.roll;
+            cout << "Roll stored: " << d.roll << endl;
+            break;
+        case 2:
+            cout << "Enter marks: ";
+            cin >> d.marks;
+            cout << "Marks stored: " << d.marks << endl;
+            break;
+        case 3:
+            cout << "Enter name: ";
+            cin >> d.name;
+            cout << "Name stored: " << d.name << endl;
+            break;
+        default:
+            cout << "Invalid choice!";
+    }
+
+    return 0;
+}
