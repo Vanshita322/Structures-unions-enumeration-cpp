@@ -1,0 +1,39 @@
+Write a C++ program using structures to store and normalize distances.
+Define a structure Distance with two members: km (integer) and m (integer).
+
+Your program should:
+
+Input a distance in kilometers and meters.
+
+If meters are greater than or equal to 1000, convert the excess meters into kilometers using the formula:
+
+extra_km = meters / 1000
+remaining_meters = meters % 1000
+
+
+Add extra_km to the existing kilometers and update meters to remaining_meters.
+
+Print the final normalized distance in the format: <km> km <m> m.
+
+
+
+#include<iostream>
+using namespace std;
+struct Distance {
+    int km;
+    int m;
+};
+int main() {
+    struct Distance d;
+    cout<<"Enter kilometers : ";
+    cin>>d.km; //1
+    cout<<"Enter meters : ";
+    cin>>d.m; //1200
+    if(d.m >= 1000) {
+    d.km += d.m / 1000;  // add extra km //1
+    d.m = d.m % 1000;    // remaining meters //200
+}
+cout<<"Kilometers : "<<d.km<<endl;
+cout<<"Meters : "<<d.m;
+return 0;
+}
