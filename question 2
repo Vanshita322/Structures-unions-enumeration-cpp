@@ -1,0 +1,52 @@
+Write a C++ program using structures to store and process employee salary data.
+Define a structure Employee with the following members: name (string), basic (integer), hra (integer), da (integer), and gross (integer).
+
+Your program should:
+
+Input the number of employees n.
+
+For each employee, read their name, basic salary, HRA, and DA.
+
+Calculate the gross salary for each employee as gross = basic + hra + da.
+
+Compare the gross salaries and determine the employee with the highest gross.
+
+Display the name of the topper employee and their gross salary.
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+struct Employee {
+    int n;
+    string name;
+    int basic;
+    int hra;
+    int da;
+};
+int main() {
+    struct Employee e;
+    cout<<"Enter the value of n : ";
+    cin>>e.n;
+    int i;
+    int gross;
+    int max = 0;
+    string result;
+    for(i=1;i<=e.n;i++) {
+        gross = 0;
+        cin.ignore();
+        getline(cin,e.name);
+        cin>>e.basic;
+        cin>>e.hra;
+        cin>>e.da;
+        cout<<e.name<<" "<<e.basic<<" "<<e.hra<<" "<<e.da<<endl;
+        gross = e.basic + e.hra + e.da;
+        cout<<gross<<endl;
+        if(gross > max) {
+            max = gross;
+            result = e.name;
+        }
+    }
+    cout<<"Highest is : "<<result;
+    return 0;
+}
