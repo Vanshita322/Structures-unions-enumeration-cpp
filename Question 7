@@ -1,0 +1,23 @@
+Write a C++ program to simulate a traffic light system using enum:
+Define an enum Colors with values: RED, YELLOW, GREEN. You may assign numbers manually if needed (e.g., RED=1).
+Prompt the user to enter a color code representing the traffic light:
+RED → 1 YELLOW → 2 GREEN → 3
+Use control structures (if-else or switch-case) to print the corresponding action for the traffic light:
+RED → Stop 🚦 YELLOW → Wait ⏳ GREEN → Go 🏃‍♂️
+If the user enters an invalid code, print "Invalid".'
+
+#include<iostream>
+#include<string>
+using namespace std;
+enum Colors {RED=0,YELLOW=1,GREEN=2};
+int main() {
+   int num;
+    cout<<"Enter the colour : ";
+    cin>>num;
+        switch(num) {
+    case 0: cout << "STOP"; break;
+    case 1: cout << "WAIT"; break;
+    case 2: cout << "GO"; break;
+}
+return 0;
+}
