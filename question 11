@@ -1,0 +1,59 @@
+Define a structure Date with members:
+
+hour (int)
+
+minute (int)
+
+second (int)
+
+Write a C++ program that:
+
+Reads two time intervals in hh:mm:ss format.
+
+Calculates the absolute difference between the two times.
+
+Prints the result in hh:mm:ss format with leading zeros for single-digit values.
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+struct Date {
+    int hour;
+    int minute;
+    int second;
+};
+
+int main() {
+    Date t1, t2;
+    char colon;
+
+    cout << "Enter first time (hh:mm:ss): ";
+    cin >> t1.hour >> colon >> t1.minute >> colon >> t1.second;
+
+    cout << "Enter second time (hh:mm:ss): ";
+    cin >> t2.hour >> colon >> t2.minute >> colon >> t2.second;
+
+    // Calculate difference
+    int diffh = t1.hour - t2.hour;
+    int diffm = t1.minute - t2.minute;
+    int diffs = t1.second - t2.second;
+
+    // Borrow logic
+    if(diffs < 0) {
+        diffs += 60;
+        diffm -= 1;
+    }
+    if(diffm < 0) {
+        diffm += 60;
+        diffh -= 1;
+    }
+
+    cout << setw(2) << setfill('0') << diffh << ":"
+         << setw(2) << setfill('0') << diffm << ":"
+         << setw(2) << setfill('0') << diffs << endl;
+
+    return 0;
+}
