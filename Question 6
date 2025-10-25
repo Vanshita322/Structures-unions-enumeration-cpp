@@ -1,0 +1,29 @@
+Write a C++ program using enum to represent the days of the week.
+Define an enum Days with values: SUN = 0, MON = 1, TUE = 2, WED = 3, THU = 4, FRI = 5, SAT = 6.
+Prompt the user to enter a number between 0 and 6 representing a day of the week.
+Using switch-case, print the name of the day corresponding to the entered number.
+If the user enters a number outside 0–6, print "Invalid input".
+
+
+#include<iostream>
+using namespace std;
+enum Days {SUN,MON,TUES,WED,THUR,FRI,SAT};
+int main() {
+    int num;
+    cout<<"Enter the number : ";
+    cin>>num;
+    if(num<0 && num>6) {
+        cout<<"Invalid";
+        return 0;
+}
+        switch(num) {
+    case 0: cout << "Sunday"; break;
+    case 1: cout << "Monday"; break;
+    case 2: cout << "Tuesday"; break;
+    case 3: cout << "Wednesday"; break;
+    case 4: cout << "Thursday"; break;
+    case 5: cout << "Friday"; break;
+    case 6: cout << "Saturday"; break;
+}
+return 0;
+}
