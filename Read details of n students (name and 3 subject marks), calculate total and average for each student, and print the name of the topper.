@@ -1,0 +1,52 @@
+Write a C++ program using structures to store and process student information.
+Define a structure Student containing data members — name (string) and marks (integer).
+Input the number of students n. For each student, read their name and marks in three subjects, calculate their total marks and average, and display them.
+Finally, determine and print the name of the student who scored the highest total marks (topper) along with their total marks.
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct Student {
+    int n;
+    string name;     // changed int → string (for names)
+    int marks;       // kept same (you used marks in a loop)
+};                   // added missing semicolon
+
+int main() {
+    struct Student s1;
+    int i, j;
+    int sum = 0;
+    int avg;
+    int maxTotal = 0;
+    string topper;
+
+    cout << "Enter n: ";
+    cin >> s1.n;
+
+    for(i = 1; i <= s1.n; i++) {
+        cin.ignore(); // to clear buffer before getline
+        cout << "Enter Name: ";
+        getline(cin, s1.name);
+
+        sum = 0; // reset sum for each student
+
+        cout << "Enter 3 marks: ";
+        for(j = 1; j <= 3; j++) {
+            cin >> s1.marks;
+            sum = sum + s1.marks;
+        }
+
+        avg = sum / 3;
+        cout << "Total = " << sum << ", Average = " << avg << endl;
+
+        if(sum > maxTotal) {
+            maxTotal = sum;
+            topper = s1.name;
+        }
+    }
+
+    cout << "\nTopper is: " << topper << " with total marks = " << maxTotal;
+    return 0;
+}
