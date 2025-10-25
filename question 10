@@ -1,0 +1,32 @@
+Define an enum check with values VOWEL, CONSONANT, and INVALID.
+Write a C++ program that:
+Reads a single character from the user.
+Determines whether the character is a vowel, consonant, or invalid (not an alphabet).
+Uses enum and switch-case to print the corresponding category.
+
+#include<iostream>
+using namespace std;
+enum check {VOWEL=0,CONSONANT=1,INVALID=2};
+int main() {
+    char ch;
+    cin>>ch;
+    int type;
+    if(isalpha(ch)) {
+        char low = tolower(ch);
+        if(low=='a' || low=='e' || low=='i' || low=='o' ||low=='u') {
+            type = 0;
+        }
+        else {
+            type = 1;
+        }
+    }
+        else {
+            type = 2;
+        }
+    switch(type) {
+        case 0: cout<<"Vowel"; break;
+        case 1: cout<<"Consonant"; break;
+        case 2: cout<<"Invalid"; break;
+    }
+    return 0;
+}
