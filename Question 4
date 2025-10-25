@@ -1,0 +1,50 @@
+Write a C++ program using structures to represent complex numbers.
+
+Define a structure Complex with two members: real (integer) and imaginary (integer).
+
+Implement two functions inside the structure:
+
+add() → takes another complex number as input and returns a new Complex structure representing the sum.
+
+subtract() → takes another complex number as input and returns a new Complex structure representing the difference.
+
+Implement a function display() to print a complex number in the format a+bi.
+
+In main(), read two complex numbers from the user (real and imaginary parts separately), calculate their sum and difference using the structure functions, and display the results.
+
+
+#include<iostream>
+using namespace std;
+struct Complex {
+    int real;
+    int imaginary;
+    Complex add(Complex c) {
+        Complex result;
+        result.real = real + c.real;
+        result.imaginary = imaginary + c.imaginary;
+        return result;
+    }
+    Complex substract(Complex c) {
+        Complex result;
+        result.real = real - c.real;
+        result.imaginary = imaginary - c.imaginary;
+        return result;
+    }
+    void display() {
+        cout<<real<<"+"<<imaginary<<"i"<<endl;
+    }
+};
+int main() {
+  struct Complex c1,c2,sum,diff;
+  cout<<"Enter first complex number : ";
+  cin>>c1.real>>c1.imaginary;
+  cout<<"Enter second complex number : ";
+  cin>>c2.real>>c2.imaginary;
+  sum = c1.add(c2);
+  diff = c1.substract(c2);
+  cout<<"Required Sum is : ";
+  sum.display();
+  cout<<"Required Substraction is : ";
+  diff.display();
+  return 0;
+}
